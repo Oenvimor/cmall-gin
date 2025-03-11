@@ -19,13 +19,10 @@ func Redis() {
 		Password: os.Getenv("REDIS_PW"),
 		DB:       int(db),
 	})
-
 	_, err := client.Ping().Result()
-
 	if err != nil {
 		logging.Info(err)
 		panic(err)
 	}
-
 	RedisClient = client
 }
